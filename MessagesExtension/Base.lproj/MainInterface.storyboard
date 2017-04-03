@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEG-Fd-efP">
-                                <rect key="frame" x="0.0" y="484" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="483" width="320" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FLa-ot-6fq"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem systemItem="camera" id="a2x-r2-yv4">
                                         <connections>
@@ -30,18 +33,22 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VX4-3N-9ok"/>
-                                    <barButtonItem title="Send!" id="qjJ-BE-cH3"/>
+                                    <barButtonItem systemItem="play" id="qjJ-BE-cH3">
+                                        <connections>
+                                            <action selector="sendPicture:" destination="ObA-dk-sSI" id="LvA-eD-ElZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-59-dMd">
-                                <rect key="frame" x="0.0" y="20" width="320" height="464"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="463"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GEG-Fd-efP" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="21X-cO-kpq"/>
                             <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="GEG-Fd-efP" secondAttribute="bottom" id="EME-zK-fnI"/>
-                            <constraint firstItem="GEG-Fd-efP" firstAttribute="top" secondItem="6E2-59-dMd" secondAttribute="bottom" id="EyL-4s-ec7"/>
+                            <constraint firstItem="GEG-Fd-efP" firstAttribute="top" secondItem="6E2-59-dMd" secondAttribute="bottom" symbolic="YES" id="EyL-4s-ec7"/>
                             <constraint firstItem="GEG-Fd-efP" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" id="M6h-9h-WFO"/>
                             <constraint firstItem="6E2-59-dMd" firstAttribute="width" secondItem="zMn-AG-sqS" secondAttribute="width" id="lrd-m2-1ok"/>
                             <constraint firstItem="6E2-59-dMd" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="rGA-Ff-x0b"/>

@@ -72,7 +72,21 @@ class MessagesViewController: MSMessagesAppViewController, UINavigationControlle
     }
     
     
-    
+    private func composeMessage() {
+        let conversation = activeConversation
+        let session = conversation?.selectedMessage?.session ?? MSSession()
+        
+        let layout = MSMessageTemplateLayout()
+        layout.image = imageView.image
+        layout.imageTitle = "My Location"
+        layout.caption = "Guess Where I Am!"
+        
+        
+        let message = MSMessage(session: session)
+        message.layout = layout
+        
+        conversation?.insert(message)
+    }
     
     
     
@@ -86,13 +100,18 @@ class MessagesViewController: MSMessagesAppViewController, UINavigationControlle
             picker.delegate = self
             picker.sourceType = sourceType
             addChildViewController(picker)
-            let insetTop: CGFloat = 20.0
-            let insetBottom: CGFloat = 20.0
+            let insetTop: CGFloat = 40.0
+            let insetBottom: CGFloat = 40.0
             let height = self.view.bounds.size.height - (insetTop + insetBottom)
             picker.view.frame = CGRect(x: 0.0, y: insetTop, width: self.view.bounds.size.width, height: height)
             view.addSubview(picker.view)
             picker.didMove(toParentViewController: self)
         }
+    }
+    
+    
+    @IBAction func sendPicture(_ sender: Any) {
+        composeMessage()
     }
     
     
